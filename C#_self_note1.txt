@@ -1,0 +1,275 @@
+System;
+using System.Collections.Generic;
+using System.Linq;
+
+USER INPUT TECHNIQUE ____
+----------------------
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+     class Program
+    {
+         public int math()
+        {
+            
+           string A;
+           A = Console.ReadLine();
+         int B= Convert.ToInt32(A);// we can not directly int user input from the user convert it string to int 
+
+            Console.WriteLine("enter your number"+B);
+            return B; // if method data type is decleared must be use return key .
+
+        }
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            p.math();
+        }
+    }
+}
+----------------------------
+Method calling and passing technique----
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Helloworld
+{
+     class Program
+    {
+        public void Myname()
+        {
+            Console.WriteLine("Shouvik");
+        }
+        public void Myname2(string a) // void with argument value print
+        {
+            Console.WriteLine(a);
+        }
+        public int Myname3(int b,int c) //
+        {
+            int d = b + c;
+            Console.WriteLine(d);
+            return d; // return keyword is mandetory for those method which contain data type... 
+        }
+        public int Myname4(int e, int f)
+        {
+          return e * f;
+            
+        }
+        public int Myname5()
+        {
+            int emp_id = 23;
+            Console.WriteLine(emp_id);
+            return emp_id;
+        }
+        public int Myname6()
+        {
+            int aa = Console.ReadLine();
+            Console.WriteLine(aa);
+            int bb =Console.ReadLine();
+            Console.WriteLine(bb);
+            int cc = aa + bb;
+            Console.WriteLine(cc);
+            return cc;
+
+        }
+        static void Main(string[] args) 
+        {
+            Program p = new Program();
+            p.Myname();
+            p.Myname2("Shouvik1");
+            p.Myname3(10000, 27765);
+            Console.WriteLine(p.Myname4(100,200));
+            p.Myname5();
+            Console.ReadLine();
+            p.Myname6();
+            
+        }
+    }
+}
+-=----------------- inhertance -------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+
+    class Animal
+    {
+        public string lion;
+        public void Runing()
+        {
+            Console.WriteLine("Animal can well");
+        }
+    }
+
+    class Man:Animal
+    {
+        public string tiger;
+        public void Swiming()
+        {
+            Console.WriteLine("man can swiming well can well");
+        }
+    }
+    class Program:Man
+    {
+        static void Main(string[] args)
+        {
+           Man a = new Man();
+            a.Swiming();
+            a.Runing();
+            Console.WriteLine(a.tiger = "white"); 
+            Console.ReadLine();
+        }
+    }
+
+
+} 
+-----------------------------------------------------Compile time polymorphism--------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4 // Complie time polymorphism // method over loading -More than one methods with same name with diffrent argument ttype called method over loading
+    internal class Program
+    {
+        public int add(int a, int b) // we always use diffrent types of signature in the Complie time polymorphism ... we know the method behaviour in this polymorphism
+            return a + b;
+        }
+        public void add()
+        {
+            int m = 10;
+            int n = 20;
+            int c = m + n;
+            Console.WriteLine("good job"+c);
+        }
+        static void Main(string[] args)
+        {
+
+            Program p = new Program();
+            p.add();
+            Console.WriteLine(p.add(10, 20));
+            Console.ReadLine();
+        }
+    }
+}
+----------------------------------------------------------Runtime Polymorphysm-------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4 // Run time time polymorphism can achived by only Inheritance.// use method over riding - multiple method with same name with diffrenr classes.
+{                      
+{
+    class A
+    {
+        public int add(int a, int b) // we don't know method method behaviour.
+        {
+            return a + b;
+        }
+    }
+        class B:A
+        {
+            public void add()
+            {
+                int m = 10;
+                int n = 20;
+                int c = m + n;
+                Console.WriteLine("good job" + c);
+            }
+        }
+    class C:B
+    {
+        static void Main(string[] args)
+        {
+
+             C p = new C();
+            p.add();
+            Console.WriteLine(p.add(10, 20));
+            Console.ReadLine();
+        }
+    }
+}
+--------------- Encapsulation -------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6   // in the encapsulation always has a private method .....our focus is access  the private member through a public method with (this) 
+{
+    class App
+        {
+        private int age;
+        public string name;
+         public void setage(int age)
+        {
+            this.age = age;
+        }
+        public int getage()
+        {
+            return age;
+        }
+
+        }
+     class Program
+    {
+        static void Main(string[] args)
+        {
+            App a = new App();
+            a.setage(12);
+            Console.WriteLine(a.getage());
+            Console.ReadLine();
+        }
+    }
+}
+-----------------------------------------------abstract ---------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp7
+{
+    abstract class Animal // declare abstruct class
+    {
+       public abstract void animal_sound(); // declare abustruct method .. no body available in the metheod in the parent class 
+
+        public void animal_sleep()
+        {
+            Console.WriteLine("Animal sleep for 8 hr");
+        }
+    }
+    class Dog : Animal // whenever we declare a abstruct method must be inherit the class 
+    {
+     public override void animal_sound() // method body always deploy on the child class.(method override is important )
+        {
+            Console.WriteLine("Every animal has diffrent sound");
+        }
+
+    }
+
+    class Main_9
+    {
+        static void Main(string[] args)
+        {
+            Dog d = new Dog();
+            d.animal_sound();// call abustruct method 
+            d.animal_sound();// call reguler method
+        }
+    }
+}
